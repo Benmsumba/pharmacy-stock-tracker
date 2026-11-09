@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pharmacy Stock &amp; Expiry Tracker</title>
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+<body>
+<main>
+<header><p class="tag">PHARMACY INVENTORY · PORTFOLIO DEMO</p><h1>Stock &amp; Expiry Tracker</h1><p>See which batches need attention, update stock, and track expiry dates.</p></header>
+<div id="summary" class="summary" aria-label="Inventory overview"></div>
+<section class="panel" aria-labelledby="inventory">
+<div class="toolbar"><h2 id="inventory">Batch inventory</h2><button id="add" type="button">+ Add batch</button></div>
+<label for="filter">Show batches</label>
+<select id="filter"><option value="all">All batches</option><option value="low">Low stock</option><option value="soon">Expiring soon</option><option value="expired">Expired</option></select>
+<div class="table"><table><thead><tr><th>Item</th><th>Batch</th><th>Quantity</th><th>Expiry</th><th>Status</th><th>Action</th></tr></thead><tbody id="rows"></tbody></table></div>
+<p id="notice" role="status"></p>
+</section>
+<dialog id="editor"><form id="batch-form"><h2 id="form-title">Add batch</h2><label>Item name<input name="item" maxlength="70" required></label><label>Batch code<input name="batch" maxlength="30" required></label><label>Quantity<input name="quantity" type="number" min="0" max="999999" required></label><label>Expiry date<input name="expiry" type="date" required></label><div class="actions"><button type="button" id="cancel" class="secondary">Cancel</button><button type="submit">Save batch</button></div></form></dialog>
+<footer>Fictional inventory only. Low stock means 10 units or fewer. Expiring soon means within 30 days. Changes are saved in this browser.</footer>
+</main>
+</body>
+</html>
